@@ -7,22 +7,21 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-public class Person {
+public class Blog {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
-	@NotBlank(message="Name is mandatory")
+	private Integer id;
+	@NotBlank(message="name is mandatory")
 	private String name;
-	private String address;
-	
-	public Person(int id, String name, String address) {
+	private String post;
+	public Blog(int id, String name, String post) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.address = address;
+		this.post = post;
 	}
 	
-	public Person() {
+	public Blog() {
 		
 	}
 
@@ -42,14 +41,13 @@ public class Person {
 		this.name = name;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getPost() {
+		return post;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setPost(String post) {
+		this.post = post;
 	}
-	
 	
 	
 }
