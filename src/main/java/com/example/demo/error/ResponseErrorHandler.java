@@ -26,4 +26,17 @@ public class ResponseErrorHandler extends ResponseEntityExceptionHandler{
 		return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(message);
 		
 	}
+	
+	@ExceptionHandler(FileNotSupportedException.class)
+	public ResponseEntity<ErrorMessage> fileNotSupported(FileNotSupportedException ex,WebRequest req){
+		ErrorMessage message = new ErrorMessage(HttpStatus.NOT_ACCEPTABLE,ex.getMessage());
+		return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(message);
+		
+	}
+	
+	@ExceptionHandler(BlogNotFoundException.class)
+	public ResponseEntity<ErrorMessage> blogNotFound(BlogNotFoundException ex,WebRequest req){
+		ErrorMessage message = new ErrorMessage(HttpStatus.NOT_FOUND,ex.getMessage());
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(message);
+	}
 }
