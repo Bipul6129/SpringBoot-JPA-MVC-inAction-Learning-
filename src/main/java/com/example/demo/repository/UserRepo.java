@@ -7,5 +7,5 @@ import com.example.demo.entity.UserEntity;
 
 @Repository
 public interface UserRepo extends JpaRepository<UserEntity,Long>{
-	
+
 }
